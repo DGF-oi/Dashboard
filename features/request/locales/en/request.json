@@ -1,0 +1,25 @@
+{
+  "list": {
+    "title": "Request List",
+    "loading": "Loading requests...",
+    "error": "Failed to load requests."
+  },
+  "create": {
+    "title": "Create Request",
+    "description": "Pages, API, store, and locales stay encapsulated inside the feature.",
+    "action": "Register",
+    "loading": "Loading request form...",
+    "error": "Failed to load request form.",
+    "submitting": "Submitting...",
+    "selectPlaceholder": "Please select",
+    "empty": "No form fields are available because the form definition could not be loaded."
+  },
+  "edit": {
+    "title": "Update Request",
+    "description": "Update screen for request ID: {{requestId}}.",
+    "loading": "Loading update form...",
+    "error": "Failed to load update form.",
+    "submitting": "Updating...",
+    "action": "Update"
+  }
+}

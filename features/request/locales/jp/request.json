@@ -1,0 +1,25 @@
+{
+  "list": {
+    "title": "申請一覧",
+    "loading": "申請を読み込んでいます...",
+    "error": "申請の取得に失敗しました。"
+  },
+  "create": {
+    "title": "申請作成",
+    "description": "feature 単位で page, api, store, locale を閉じ込めています。",
+    "action": "登録",
+    "loading": "登録フォームを読み込んでいます...",
+    "error": "登録フォームの取得に失敗しました。",
+    "submitting": "登録中...",
+    "selectPlaceholder": "選択してください",
+    "empty": "フォーム定義が取得できなかったため、表示できる項目がありません。"
+  },
+  "edit": {
+    "title": "申請更新",
+    "description": "申請ID: {{requestId}} の更新画面です。",
+    "loading": "更新フォームを読み込んでいます...",
+    "error": "更新フォームの取得に失敗しました。",
+    "submitting": "更新中...",
+    "action": "更新"
+  }
+}

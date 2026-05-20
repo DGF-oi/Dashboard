@@ -1,0 +1,573 @@
+:root {
+  --app-bg: #f8fafc;
+  --app-bg-dark: #0f172a;
+  --panel-bg: rgba(255, 255, 255, 0.92);
+  --panel-bg-dark: rgba(15, 23, 42, 0.9);
+  --border-color: rgba(100, 116, 139, 0.25);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 0% 0%, #dbeafe 0%, transparent 35%), var(--app-bg);
+}
+
+:root[data-theme="dark"] body {
+  background: radial-gradient(circle at 0% 0%, #1e293b 0%, transparent 35%), var(--app-bg-dark);
+  color: #e2e8f0;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  position: relative;
+}
+
+.app-shell--sidebar-compact {
+  grid-template-columns: 92px 1fr;
+}
+
+.app-shell__sidebar {
+  background: var(--panel-bg);
+  border-right: 1px solid var(--border-color);
+  transition: transform 0.2s ease, width 0.2s ease;
+  overflow: hidden;
+}
+
+.app-shell__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-shell__brand-mark {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #0f172a, #2563eb);
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+  text-decoration: none;
+}
+
+.app-shell__brand-mark:hover {
+  color: #ffffff;
+}
+
+.app-shell__brand-mark-full {
+  display: inline;
+}
+
+.app-shell__brand-mark-compact {
+  display: none;
+}
+
+.app-shell__brand-copy {
+  min-width: 0;
+}
+
+:root[data-theme="dark"] .app-shell__sidebar {
+  background: var(--panel-bg-dark);
+  color: #e2e8f0;
+}
+
+.app-shell__content {
+  position: relative;
+}
+
+.app-shell__body {
+  position: relative;
+}
+
+.app-shell__subtitle {
+  color: #64748b;
+}
+
+.app-nav .active {
+  border-color: var(--bs-primary);
+  color: var(--bs-primary);
+}
+
+.app-nav__tree {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.app-nav__tree-toggle,
+.app-nav__tree-link,
+.app-nav__account-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.5);
+  color: inherit;
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  text-decoration: none;
+}
+
+:root[data-theme="dark"] .app-nav__tree-toggle,
+:root[data-theme="dark"] .app-nav__tree-link,
+:root[data-theme="dark"] .app-nav__account-link {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.app-nav__tree-toggle:hover,
+.app-nav__tree-link:hover,
+.app-nav__account-link:hover {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.06);
+  color: #1d4ed8;
+}
+
+.app-nav__tree-toggle:focus-visible,
+.app-nav__tree-link:focus-visible,
+.app-nav__account-link:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.45);
+  outline-offset: 2px;
+}
+
+.app-nav__tree-toggle {
+  justify-content: flex-start;
+}
+
+.app-nav__tree-children {
+  display: grid;
+  gap: 0.45rem;
+  padding-left: 0.75rem;
+}
+
+.app-nav__tree-link {
+  padding-left: 0.95rem;
+}
+
+.app-nav__tree-toggle--active,
+.app-nav__tree-link--active,
+.app-nav__account-link--active {
+  border-color: rgba(37, 99, 235, 0.35);
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+  box-shadow: 0 0 0 1px currentColor inset;
+}
+
+.app-nav__icon {
+  width: 1.45rem;
+  flex: 0 0 1.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-nav__icon-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-nav__label {
+  white-space: nowrap;
+}
+
+.app-nav__chevron {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+.app-shell--sidebar-compact .app-shell__sidebar h1,
+.app-shell--sidebar-compact .app-shell__subtitle {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.app-shell--sidebar-compact .app-nav a {
+  text-indent: -9999px;
+  position: relative;
+  min-height: 44px;
+}
+
+.app-shell--sidebar-compact .app-nav a::after {
+  display: none;
+}
+
+.app-shell--sidebar-compact .app-shell__brand {
+  justify-content: center;
+}
+
+.app-shell--sidebar-compact .app-shell__brand-mark {
+  width: 2.85rem;
+  height: 2.85rem;
+}
+
+.app-shell--sidebar-compact .app-shell__brand-mark-full {
+  display: none;
+}
+
+.app-shell--sidebar-compact .app-shell__brand-mark-compact {
+  display: inline;
+}
+
+.app-shell--sidebar-compact .app-shell__brand-copy {
+  display: none;
+}
+
+.app-shell--sidebar-compact .app-nav__tree-children {
+  padding-left: 0;
+}
+
+.app-shell--sidebar-compact .app-nav__tree-toggle,
+.app-shell--sidebar-compact .app-nav__tree-link,
+.app-shell--sidebar-compact .app-nav__account-link {
+  justify-content: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.app-shell--sidebar-compact .app-nav__label,
+.app-shell--sidebar-compact .app-nav__chevron {
+  display: none;
+}
+
+.app-shell--sidebar-compact .app-nav__tree-link {
+  min-height: 44px;
+}
+
+.toolbar {
+  background: var(--panel-bg);
+  border-radius: 0;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  z-index: 25;
+}
+
+:root[data-theme="dark"] .toolbar {
+  background: var(--panel-bg-dark);
+}
+
+.toolbar__group {
+  /* レフト・センター・ライトを1行で配置します。space-between で両端に寄せます。 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.toolbar__section {
+  /* toolbar__group 内の3つのセクション用 */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.toolbar__section--left {
+  /* レフト：flex-start（デフォルト）で左に寄せる */
+  flex: 0 1 auto;
+}
+
+.toolbar__section--center {
+  /* センター：flex-grow で中央スペースを埋める */
+  flex: 1 0 auto;
+}
+
+.toolbar__section--right {
+  /* ライト：flex-end で右に寄せる */
+  flex: 0 1 auto;
+  justify-content: flex-end;
+}
+
+/* 2行にしたい場合は以下のように toolbar__group を改めて定義します：
+   .toolbar__group--stacked {
+     flex-direction: column;
+     justify-content: flex-start;
+     gap: 0.75rem;
+   }
+*/
+
+.toolbar__icon-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0.2rem 0.45rem;
+}
+
+.toolbar__icon-button--menu {
+  /* 全画面サイズで常に表示します。ボタンクリック時の動作は window.innerWidth で判定されます。 */
+  display: inline-flex;
+}
+
+.toolbar__icon-button--menu.btn-link {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  text-decoration: none;
+}
+
+.toolbar__profile-button {
+  gap: 0.4rem;
+}
+
+.toolbar__profile-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toolbar__badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 999px;
+  background: var(--bs-danger);
+  color: #fff;
+  font-size: 0.7rem;
+  line-height: 1.2rem;
+  text-align: center;
+}
+
+.toolbar__menu-wrap {
+  position: relative;
+}
+
+.toolbar__panel {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  z-index: 30;
+  width: min(340px, calc(100vw - 1.5rem));
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+}
+
+:root[data-theme="dark"] .toolbar__panel {
+  background: #ffffff;
+  color: #111827;
+}
+
+.toolbar__panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.toolbar__panel-section {
+  margin-bottom: 0.75rem;
+  color: #64748b;
+}
+
+.toolbar__field {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 0.7rem;
+}
+
+.toolbar__field span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.toolbar__field select {
+  width: 100%;
+  background: #ffffff;
+  color: #111827;
+}
+
+.toolbar__notification-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.toolbar__notification-item {
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.toolbar__eyebrow,
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.app-shell__scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  border: 0;
+  background: rgba(2, 6, 23, 0.35);
+}
+
+.auth-layout {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.auth-layout__panel {
+  width: min(480px, 100%);
+}
+
+.min-vh-50 {
+  min-height: 50vh;
+}
+
+@media (max-width: 960px) {
+  .app-shell,
+  .app-shell--sidebar-compact {
+    grid-template-columns: 1fr;
+  }
+
+  .app-shell__sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(320px, 84vw);
+    transform: translateX(-100%);
+    z-index: 40;
+  }
+
+  .app-shell--sidebar-open .app-shell__sidebar {
+    transform: translateX(0);
+  }
+
+  .app-shell--sidebar-compact .app-shell__sidebar h1,
+  .app-shell--sidebar-compact .app-shell__subtitle {
+    opacity: 1;
+    height: auto;
+    margin: 0;
+  }
+
+  .app-shell--sidebar-compact .app-shell__brand-copy {
+    display: block;
+  }
+
+  .app-shell--sidebar-compact .app-shell__brand-mark-full {
+    display: inline;
+  }
+
+  .app-shell--sidebar-compact .app-shell__brand-mark-compact {
+    display: none;
+  }
+
+  .app-shell--sidebar-compact .app-nav__label,
+  .app-shell--sidebar-compact .app-nav__chevron {
+    display: inline-flex;
+  }
+
+  .app-shell--sidebar-compact .app-nav a {
+    text-indent: 0;
+    min-height: auto;
+  }
+
+  .app-shell--sidebar-compact .app-nav__tree-toggle,
+  .app-shell--sidebar-compact .app-nav__tree-link,
+  .app-shell--sidebar-compact .app-nav__account-link {
+    justify-content: flex-start;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .app-shell--sidebar-compact .app-nav a::after {
+    display: none;
+  }
+
+  .toolbar {
+    align-items: flex-start;
+  }
+
+  .toolbar__group,
+  .toolbar__group--meta {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .toolbar__panel {
+    right: auto;
+    left: 0;
+  }
+
+  .toolbar__section--right .toolbar__panel {
+    left: auto;
+    right: 0;
+  }
+
+  .toolbar__section--left .toolbar__panel {
+    left: 0;
+    right: auto;
+  }
+}
+
+@media (max-width: 375px) {
+  .toolbar {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  .toolbar__group {
+    gap: 0.25rem;
+  }
+
+  .toolbar__section {
+    gap: 0.25rem;
+  }
+
+  .toolbar__nav-links {
+    margin-left: 0.25rem !important;
+    gap: 0.25rem !important;
+  }
+
+  .toolbar__nav-link {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    font-size: 0;
+  }
+
+  .toolbar__nav-link span {
+    display: none;
+  }
+
+  .toolbar__profile-name {
+    display: none;
+  }
+
+  .toolbar__icon-button {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0.15rem 0.3rem;
+  }
+
+  .toolbar__panel {
+    width: min(320px, calc(100vw - 1rem));
+  }
+}
